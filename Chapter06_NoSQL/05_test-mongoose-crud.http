@@ -1,4 +1,4 @@
-##### REST Client를 사용해 CRUD API 테스트
+# mongoose crud 테스트
 
 # server 변수 설정
 @server=http://localhost:3000
@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
     "name": "Andy Park",
-    "age": 30, 
+    "age" : 30,
     "email": "andy@backend.com"
 }
 
@@ -27,5 +27,5 @@ Content-Type: application/json
     "age": 32
 }
 
-### DELETE 요청 보내기(문서 삭제)
+### 문서 삭제
 DELETE {{server}}/person/andy@backend.com
