@@ -1,72 +1,98 @@
 <h1>{{title}}</h1>
-<!--게시글의 제목-->
-<h2 class="text-xl">제목입니다.</h2>
+{{#with post}}
+  <!--post 객체를 쉽게 사용하도록 with로 감싸기-->
 
-<!--작성자 이름-->
-<div>
+  <!--게시글의 제목-->
+  {{! <h2 class="text-xl">제목입니다.</h2> }}
+  <h2 class="text-xl">{{title}}</h2>
+
+  <!--작성자 이름-->
+  {{! <div>
   작성자:
   <b>작성자 이름</b>
 </div>
-<div>
+<div> }}
+
+  <div>
+    작성자:
+    <b>{{writer}}</b>
+  </div>
+
   <!--조회수와 작성일시-->
-  조회수 : 9999 | 작성일시 : 2022-01-01 00:00:00
-  <!--게시글 관련 버튼 영역-->
-  <button onclick="modifyPost()">수정</button>
-  <button onclick="deletePost()">삭제</button>
-</div>
-
-<!--본문 표시 영역-->
-<div>
-  <pre>본문입니다.</pre>
-</div>
-
-<section>
-  <!--댓글 개수 표시-->
+  {{! 조회수 : 9999 | 작성일시 : 2022-01-01 00:00:00 }}
   <div>
-    <h3>3개의 댓글이 있습니다</h3>
+    조회수 :
+    {{hits}}
+    | 작성일시 :
+    {{dateString createdDt}}
+
+    <!--게시글 관련 버튼 영역-->
+    <button onclick="modifyPost()" data-id="{{_id}}">수정</button>
+    <button onclick="deletePost()">삭제</button>
   </div>
 
-  <!--댓글 작성 폼-->
-  <form method="post" action="/write-comment">
+  <!--본문 표시 영역-->
+  <div>
+    {{! <pre>본문입니다.</pre> }}
+    {{content}}
+  </div>
+
+  <section>
+    <!--댓글 개수 표시-->
+    <div>
+      {{! <h3>3개의 댓글이 있습니다</h3> }}
+      <h3>{{lengthOfList comments}}개의 댓글이 있습니다.</h3>
+    </div>
+
+    <!--댓글 작성 폼-->
+    <form method="post" action="/write-comment">
+      <input type="hidden" name="id" value="{{_id}}" />
+      <div>
+        <div>
+          <input type="text" name="name" placeholder="이름" />
+          <input type="password" name="password" placeholder="비밀번호" />
+        </div>
+        <div>
+          <textarea
+            cols="40"
+            rows="3"
+            name="comment"
+            placeholder="댓글을 입력해주세요"
+          ></textarea>
+          <!--댓글 전송 버튼-->
+          <br /><br />
+          <button>댓글 쓰기</button>
+        </div>
+      </div>
+    </form>
+  </section>
+
+  <!--댓글 표시 영역-->
+  {{#each comments}}
+  <section>
     <div>
       <div>
-        <input type="text" name="name" placeholder="이름" />
-        <input type="password" name="password" placeholder="비밀번호" />
+        작성자 :
+        {{!-- <b>댓글 작성자</b> --}}
+        <b>{{name}}</b>
       </div>
       <div>
-        <textarea
-          cols="40"
-          rows="3"
-          name="comment"
-          placeholder="댓글을 입력해주세요"
-        ></textarea>
-        <!--댓글 전송 버튼-->
-        <br /><br />
-        <button>댓글 쓰기</button>
+        {{!-- 작성일시 : 2022-01-01 00:00:00 --}}
+        작성일시 : {{dateString createdDt}}
+        <button onclick="deleteComment({{idx}})">삭제</button>
       </div>
     </div>
-  </form>
-</section>
+    <div>
+      <pre>{{comment}}</pre>
+    </div>
+    {{/each}}
+  </section>
+{{/with}}
 
-<!--댓글 표시 영역-->
-<section>
-  <div>
-    <div>
-      작성자 :
-      <b>댓글 작성자</b>
-    </div>
-    <div>
-      작성일시 : 2022-01-01 00:00:00
-      <button onclick="deleteComment('1')">삭제</button>
-    </div>
-  </div>
-  <div>
-    <pre>{{comment}}</pre>
-  </div>
-</section>
 <footer>
   <!--목록으로 가는 링크-->
   <div>
     <a href="/">목록으로</a>
   </div>
 </footer>
+<script src="/JS/detail.js"></script>
