@@ -1,0 +1,9 @@
+// 타입스크립트 설정 파일
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNEXT",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
+  }
+}
