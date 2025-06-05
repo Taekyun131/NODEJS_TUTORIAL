@@ -8,3 +8,4 @@
 ## 8일차 - Pagination 게시판 프로젝트(paginator 생성, 게시글 작성, paginator와 헬퍼함수를 사용한 게시글 리스트 뷰 작성)
 ## 9일차 - Pagination 게시판 프로젝트(MongoDB 연동한 게시판 CRUD 구현 및 댓글 작성 기능 구현)
 ## 10일차 - NestJS 프레임워크를 사용해 게시판 프로젝트 진행(MongoDB 연동해 CRUD 구현 및 REST Client를 사용한 API 테스트)
+## 11일차 - NestJS 환경에서 환경변수 설정방법
