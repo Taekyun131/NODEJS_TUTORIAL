@@ -9,3 +9,4 @@
 ## 9일차 - Pagination 게시판 프로젝트(MongoDB 연동한 게시판 CRUD 구현 및 댓글 작성 기능 구현)
 ## 10일차 - NestJS 프레임워크를 사용해 게시판 프로젝트 진행(MongoDB 연동해 CRUD 구현 및 REST Client를 사용한 API 테스트)
 ## 11일차 - NestJS 환경에서 환경변수 설정방법
+## 12일차 - 회원가입 및 인증 프로젝트(sqlite 연동한 회원 CRUD 구현, ValidationPipe를 사용한 유효성 검사기능 구현)
