@@ -12,3 +12,4 @@
 ## 12일차 - 회원가입 및 인증 프로젝트(Sqlite 연동한 회원 CRUD API 생성, ValidationPipe를 사용한 유효성 검사기능 구현, REST Client로 CRUD 테스트)
 ## 13일차 - 회원가입 및 인증 프로젝트(쿠키와 세션을 사용한 로그인 구현, 가드 및 패스포트를 사용한 인증로직 구현, REST Client로 인증 테스트)
 ## 14일차 - OAuth를 사용해 Google 소셜 로그인 기능 구현
+## 15일차 - multer라이브러리를 사용해 파일 업로드 기능 구현 및 REST Client, curl로 테스트
